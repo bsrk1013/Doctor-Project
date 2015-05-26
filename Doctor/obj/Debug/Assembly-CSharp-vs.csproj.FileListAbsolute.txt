@@ -1,0 +1,14 @@
+D:\Doctor-Project\Doctor\Temp\bin\Debug\Assembly-CSharp.dll
+D:\Doctor-Project\Doctor\Temp\bin\Debug\Assembly-CSharp.pdb
+D:\Doctor-Project\Doctor\Temp\bin\Debug\UnityEditor.dll
+D:\Doctor-Project\Doctor\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.dll
+D:\Doctor-Project\Doctor\Temp\bin\Debug\UnityEngine.dll
+D:\Doctor-Project\Doctor\Temp\bin\Debug\UnityEngine.UI.dll
+D:\Doctor-Project\Doctor\Temp\bin\Debug\Mono.Cecil.dll
+D:\Doctor-Project\Doctor\Temp\bin\Debug\Unity.SerializationLogic.dll
+D:\Doctor-Project\Doctor\Temp\bin\Debug\Unity.DataContract.dll
+D:\Doctor-Project\Doctor\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+D:\Doctor-Project\Doctor\Temp\bin\Debug\Unity.CecilTools.dll
+D:\Doctor-Project\Doctor\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+D:\Doctor-Project\Doctor\obj\Debug\Assembly-CSharp.dll
+D:\Doctor-Project\Doctor\obj\Debug\Assembly-CSharp.pdb

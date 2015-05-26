@@ -3,20 +3,23 @@ using System.Collections;
 
 public abstract class Talk : MonoBehaviour {
 
-    public string[] TalkList = new string[20];
-    public float LimitTime;
-    public int LimitTalkNum;
+    public string[] TalkList;
+    public float LimitTime;    
 
     protected UILabel Label;
     protected float CurrentTime;
     protected int CurrentTalkNum;
+    protected int PlayCount;
+    protected bool isTalking;    
 
-    protected void Init()
+    protected void Init( int _FontSize = 40, bool _isTalking = false )
     {
         CurrentTalkNum = 0;
         CurrentTime = 0;
+        PlayCount = 0;
         Label = GetComponent<UILabel>();
         Label.fontSize = 40;
+        isTalking = _isTalking;
     }
 
     // Update가 시작하자마자 실행
@@ -27,29 +30,47 @@ public abstract class Talk : MonoBehaviour {
 
     protected void DefaultTalk()
     {
-        Label.text = TalkList[CurrentTalkNum];
-
-        if( LimitTime <= CurrentTime )
+        if (LimitTime <= CurrentTime && isTalking)
         {
             NextTalk();
         }
+
+        Label.text = TalkList[CurrentTalkNum];
     }
 
     protected void NextTalk()
     {
-        if (LimitTalkNum > CurrentTalkNum)
+        if (TalkList.Length - 1 > CurrentTalkNum)
         {
             ++CurrentTalkNum;
         }
         else
         {
-            CurrentTalkNum = 0;
+            EndTalkEvent();
         }
         CurrentTime = 0;
     }
 
     public void TouchWindow()
     {
+        if (!isTalking)
+        {
+            return;
+        }
+
         NextTalk();
     }
+
+    protected void EasingEvent(params int[] _EventNum)
+    {
+        for (int i = 0; _EventNum.Length > i; ++i)
+        {
+            if (CurrentTalkNum == _EventNum[i])
+            {
+                BackGroundManager.getInstance().EasingBackGround(CurrentTalkNum);
+            }
+        }
+    }
+
+    public abstract void EndTalkEvent();
 }

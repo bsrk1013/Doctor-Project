@@ -181,7 +181,7 @@
      <Compile Include="Assets\NGUI\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Script\BackGroundManager.cs" />
-     <Compile Include="Assets\Script\Talk\HeartAttck.cs" />
+     <Compile Include="Assets\Script\Talk\HeartAttckTalk.cs" />
      <Compile Include="Assets\Script\Talk\Talk.cs" />
      <None Include="Assets\NGUI\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\NGUI\ReadMe - 3.6.2.txt" />
