@@ -20,6 +20,8 @@ public class BackGroundManager : MonoBehaviour
     {
         E_MAIN = 0,
         E_HEARTATTACK,
+        E_HEARTATTACKQUIZ,
+        E_SUCCES
     };
 
     public GameObject[] SceneList;
@@ -38,15 +40,8 @@ public class BackGroundManager : MonoBehaviour
 
     public void ChangeBackGround(SCENE_NUM _Num)
     {
-        switch (_Num)
-        {
-            case SCENE_NUM.E_HEARTATTACK:
-                {
-                    Destroy(CurrentScene);
-                    CurrentScene = Instantiate(SceneList[(int)_Num]);
-                    break;
-                }
-        }
+        Destroy(CurrentScene);
+        CurrentScene = Instantiate(SceneList[(int)_Num]);
     }
 
     public void EasingBackGround( int _nNum )
