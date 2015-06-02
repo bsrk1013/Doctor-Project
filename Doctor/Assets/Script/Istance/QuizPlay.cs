@@ -13,7 +13,7 @@ public abstract class QuizPlay : MonoBehaviour {
     {
         CurrentStage = 1;
         CurrentHintNum = 0;
-        CurrentHintPhoto = GetComponentInChildren<UISprite>();
+        CurrentHintPhoto = GameObject.Find( "HintPhoto" ).GetComponent<UISprite>();
         Label = GameObject.Find("Bulletin").GetComponent<UILabel>();
         Label.fontSize = 30;
         Label.fontStyle = FontStyle.Bold;
@@ -30,10 +30,11 @@ public abstract class QuizPlay : MonoBehaviour {
         if (CurrentStage != (CurrentHintNum))
         {
             CurrentHintPhoto.spriteName = _Name + CurrentHintNum;
+            Debug.Log("CurrentHintNum : " + CurrentHintNum);
             ++CurrentHintNum;
         }
     }
 
-    public abstract void SetQuizPhoto();
+    public abstract void SetBulletin();
     public abstract void EndQuiz();    
 }

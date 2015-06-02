@@ -16,11 +16,11 @@ public class HeartAttackQuiz : QuizPlay {
 	}
 	
 	// Update is called once per frame
-	void Update () {        
+	void Update () {
 
-        SetQuizPhoto();
+        SetBulletin();
 
-       //CraeteHintPhoto("HeartAttack");
+       CraeteHintPhoto("HeartAttackHint");
 
         Label.text = CurrentBulletin;
 
@@ -30,7 +30,7 @@ public class HeartAttackQuiz : QuizPlay {
         }
 	}
 
-    public override void SetQuizPhoto()
+    public override void SetBulletin()
     {
         switch( CurrentStage )
         {
@@ -64,11 +64,9 @@ public class HeartAttackQuiz : QuizPlay {
     {
         if (1 != CurrentStage)
         {
-            Debug.Log("퀴즈 순서 틀림");
-            BackGroundManager.getInstance().EasingBackGround(-2);
+            Debug.Log("퀴즈 순서 틀림");            
             return;
         }
-
 
         NextStage();
     }
@@ -77,8 +75,7 @@ public class HeartAttackQuiz : QuizPlay {
     {
         if (2 != CurrentStage && 4 != CurrentStage)
         {
-            Debug.Log("퀴즈 순서 틀림");
-            BackGroundManager.getInstance().EasingBackGround(-2);
+            Debug.Log("퀴즈 순서 틀림");            
             return;
         }
 
@@ -96,8 +93,7 @@ public class HeartAttackQuiz : QuizPlay {
     {
         if (3 != CurrentStage && 5 != CurrentStage)
         {
-            Debug.Log("퀴즈 순서 틀림");
-            BackGroundManager.getInstance().EasingBackGround(-2);
+            Debug.Log("퀴즈 순서 틀림");            
             return;
         }
 

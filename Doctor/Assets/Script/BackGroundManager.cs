@@ -21,7 +21,11 @@ public class BackGroundManager : MonoBehaviour
         E_MAIN = 0,
         E_HEARTATTACK,
         E_HEARTATTACKQUIZ,
-        E_SUCCES
+        E_SUCCES,
+        E_SNAKE,
+        E_SNAKEQUIZ,
+        E_CONCUSSION,
+        E_CONCUSSIONQUIZ,
     };
 
     public GameObject[] SceneList;
