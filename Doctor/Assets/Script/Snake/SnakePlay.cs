@@ -14,7 +14,7 @@ public class SnakePlay : GamePlay {
 
         DefaultTalk();
 
-        EasingEvent(2, 4);
+        EasingEvent(3, 5);
 	}
 
     public override void EndTalkEvent()

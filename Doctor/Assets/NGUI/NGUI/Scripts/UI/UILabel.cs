@@ -258,7 +258,7 @@ public class UILabel : UIWidget
 			}
 			else if (mText != value)
 			{
-				mText = value;
+                mText = value.Replace("\\n", "\n"); ;
 				MarkAsChanged();
 				ProcessAndRequest();
 			}

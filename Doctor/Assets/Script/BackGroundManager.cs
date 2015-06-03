@@ -26,6 +26,9 @@ public class BackGroundManager : MonoBehaviour
         E_SNAKEQUIZ,
         E_CONCUSSION,
         E_CONCUSSIONQUIZ,
+        E_SIMULATIONCHOICE,
+        E_HEALTHTRAINING,
+        E_EMERGENCYMENUAL,
     };
 
     public GameObject[] SceneList;
