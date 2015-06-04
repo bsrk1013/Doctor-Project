@@ -7,7 +7,9 @@ public abstract class QuizPlay : MonoBehaviour {
     protected int CurrentStage;
     protected int CurrentHintNum;
     protected string CurrentBulletin;
-    protected UILabel Label;    
+    protected bool isEvent;
+    protected UILabel Label;
+    protected int HP;
 
 	protected void Init()
     {
@@ -17,12 +19,14 @@ public abstract class QuizPlay : MonoBehaviour {
         Label = GameObject.Find("Bulletin").GetComponent<UILabel>();
         Label.fontSize = 30;
         Label.fontStyle = FontStyle.Bold;
+        isEvent = false;
+        HP = 3;
     }
 
     protected void NextStage()
     {
         ++CurrentStage;
-        Debug.Log("현재 스테이지 : " + CurrentStage);
+        isEvent = false;
     }
     
     protected void CraeteHintPhoto(string _Name)
@@ -30,11 +34,17 @@ public abstract class QuizPlay : MonoBehaviour {
         if (CurrentStage != (CurrentHintNum))
         {
             CurrentHintPhoto.spriteName = _Name + CurrentHintNum;
-            Debug.Log("CurrentHintNum : " + CurrentHintNum);
             ++CurrentHintNum;
         }
     }
 
+    protected void MinusHP()
+    {
+        GameObject.Find("Heart" + HP).SetActive(false);
+        --HP;
+    }
+
+    public abstract void Event();
     public abstract void SetBulletin();
-    public abstract void EndQuiz();    
+    public abstract void EndQuiz();
 }

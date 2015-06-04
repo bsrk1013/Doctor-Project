@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SnakePlay : GamePlay {
+public class SnakePlay : GamePlay {    
 
-	// Use this for initialization
 	void Start () {
         Init( 40, true );
 	}
@@ -14,7 +13,10 @@ public class SnakePlay : GamePlay {
 
         DefaultTalk();
 
-        EasingEvent(3, 5);
+        EasingEvent();
+
+        ChangeTalkBox(3, "OldMan", "Snake1");
+        ChangeTalkBox(5, "YoungMan", "Boy1");
 	}
 
     public override void EndTalkEvent()

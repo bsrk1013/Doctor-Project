@@ -15,7 +15,10 @@ public class ConcussionPlay : GamePlay
 
         DefaultTalk();
 
-        EasingEvent(2, 4);
+        EasingEvent();
+
+        ChangeTalkBox(5, "OldMan", "Concussion1");
+        ChangeTalkBox(6, "YoungMan", "ConcussionBoy1");
 	}
 
     public override void EndTalkEvent()
