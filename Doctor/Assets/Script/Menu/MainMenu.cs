@@ -10,11 +10,6 @@ public class MainMenu : MonoBehaviour {
 
     public void HealthTrainingMenu()
     {
-        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_HEALTHTRAINING);
-    }
-
-    public void EmergencyMenualMenu()
-    {
-        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_EMERGENCYMENUAL);
+        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_HEALTHCARE);
     }
 }

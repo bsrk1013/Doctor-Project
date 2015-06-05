@@ -19,7 +19,6 @@ public class Succes : MonoBehaviour {
 			Alpha -= Speed * RealTime.deltaTime;
 			GetComponent<UISprite> ().alpha = Alpha;
 		} else{
-            Debug.Log( "Succes" );
 			BackGroundManager.getInstance().ChangeBackGround( BackGroundManager.SCENE_NUM.E_MAIN );
 		}
 	}

@@ -17,4 +17,9 @@ public class SimulationChoice : MonoBehaviour
     {
         BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_CONCUSSION);
     }
+
+    public void BackButton()
+    {
+        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_MAIN);
+    }
 }

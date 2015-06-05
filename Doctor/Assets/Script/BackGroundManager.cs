@@ -18,7 +18,7 @@ public class BackGroundManager : MonoBehaviour
 
     public enum SCENE_NUM
     {
-        E_MAIN = 0,
+        E_SIMULATIONCHOICE = 0,
         E_HEARTATTACK,
         E_HEARTATTACKQUIZ,
         E_SUCCES,
@@ -26,9 +26,9 @@ public class BackGroundManager : MonoBehaviour
         E_SNAKEQUIZ,
         E_CONCUSSION,
         E_CONCUSSIONQUIZ,
-        E_SIMULATIONCHOICE,
-        E_HEALTHTRAINING,
-        E_EMERGENCYMENUAL,
+        E_MAIN,
+        E_HEALTHCARE,
+        E_LIVERGAME,
     };
 
     public GameObject[] SceneList;
