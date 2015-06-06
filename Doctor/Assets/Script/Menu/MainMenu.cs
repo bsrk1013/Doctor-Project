@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour {
 
     public void HealthTrainingMenu()
     {
-        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_HEALTHCARE);
+        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_HEALTHCARECHOICE);
     }
 
     public void QuitButton()

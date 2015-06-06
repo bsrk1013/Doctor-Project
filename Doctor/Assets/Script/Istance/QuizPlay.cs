@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class QuizPlay : MonoBehaviour {
 
     protected UISprite CurrentHintPhoto;
+    protected UISprite CurrentQuizPhoto;
     protected int CurrentStage;
     protected int CurrentHintNum;
     protected string CurrentBulletin;
@@ -11,11 +12,18 @@ public abstract class QuizPlay : MonoBehaviour {
     protected UILabel Label;
     protected int HP;
 
+    public void WrongButton()
+    {
+        GameObject.Find("Heart" + HP).SetActive(false);
+        --HP;
+    }
+
 	protected void Init()
     {
         CurrentStage = 1;
         CurrentHintNum = 0;
-        CurrentHintPhoto = GameObject.Find( "HintPhoto" ).GetComponent<UISprite>();
+        CurrentHintPhoto = GameObject.Find("HintPhoto").GetComponent<UISprite>();
+        CurrentQuizPhoto = GameObject.Find("QuizPhoto").GetComponent<UISprite>();
         Label = GameObject.Find("Bulletin").GetComponent<UILabel>();
         Label.fontSize = 30;
         Label.fontStyle = FontStyle.Bold;
@@ -35,6 +43,14 @@ public abstract class QuizPlay : MonoBehaviour {
         {
             CurrentHintPhoto.spriteName = _Name + CurrentHintNum;
             ++CurrentHintNum;
+        }
+    }
+
+    protected void CreateQuizPhoto(string _Name)
+    {
+        if (CurrentStage != (CurrentHintNum))
+        {
+            CurrentQuizPhoto.spriteName = _Name + CurrentHintNum;
         }
     }
 

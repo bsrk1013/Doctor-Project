@@ -27,8 +27,11 @@ public class BackGroundManager : MonoBehaviour
         E_CONCUSSION,
         E_CONCUSSIONQUIZ,
         E_MAIN,
-        E_HEALTHCARE,
+        E_HEALTHCARECHOICE,
         E_LIVERGAME,
+        E_FAIL,
+        E_STOMACHGAME,
+        E_DEMENTIAGAME,
     };
 
     public GameObject[] SceneList;
@@ -45,10 +48,20 @@ public class BackGroundManager : MonoBehaviour
         EasingNum = -1;
     }
 
-    public void ChangeBackGround(SCENE_NUM _Num)
+    public void ChangeBackGround(SCENE_NUM _Num, string _StageName = "")
     {
         Destroy(CurrentScene);
         CurrentScene = Instantiate(SceneList[(int)_Num]);
+
+        if( _Num == SCENE_NUM.E_SUCCES )
+        {
+            CurrentScene.GetComponent<GameExit>().StageName = _StageName;
+            CurrentScene.GetComponent<UISprite>().spriteName = _StageName;
+        }
+        else if (_Num == SCENE_NUM.E_FAIL)
+        {
+            CurrentScene.GetComponent<GameExit>().StageName = _StageName;
+        }
     }
 
     public void EasingBackGround( int _nNum )

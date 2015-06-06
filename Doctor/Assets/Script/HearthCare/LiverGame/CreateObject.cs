@@ -3,8 +3,10 @@ using System.Collections;
 
 public class CreateObject : MonoBehaviour {
 
-    public GameObject[] Food;    
+    public GameObject[] Food;
+    public string GameName;
     public float CreateTime;
+    public bool isTime;
 
     private float CurrentTime;
     private float CurrentCreateTime;
@@ -19,27 +21,33 @@ public class CreateObject : MonoBehaviour {
         CurrentTime = 0;
         Speed = -0.01f;
         CurrentStage = 10;
-        CurrentTimeText = GameObject.Find("CurrentTime").GetComponent<UILabel>();
+        if (isTime)
+        {
+            CurrentTimeText = GameObject.Find("CurrentTime").GetComponent<UILabel>();
+        }        
     }
 
 	void Update ()
     {
         CurrentCreateTime += RealTime.deltaTime;
         CurrentTime += RealTime.deltaTime;
-        IntCurrentTime = (int)CurrentTime;
-        CurrentTimeText.text = IntCurrentTime.ToString();
 
-        if (30 <= CurrentTime)
+        if (isTime)
         {
-            BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES);
-        }
+            IntCurrentTime = (int)CurrentTime;
+            CurrentTimeText.text = IntCurrentTime.ToString();
 
-        if (1 <= CurrentTime / CurrentStage)
-        {
-            Debug.Log("HERE");
-            Speed -= 0.003f;
-            CurrentStage += 10;
-            CreateTime -= 0.1f;
+            if (1 <= CurrentTime / CurrentStage)
+            {
+                Speed -= 0.003f;
+                CurrentStage += 10;
+                CreateTime -= 0.1f;
+            }
+
+            if (30 <= CurrentTime)
+            {
+                BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES, GameName + "Succes");
+            }
         }
 
         if (CreateTime < CurrentCreateTime)

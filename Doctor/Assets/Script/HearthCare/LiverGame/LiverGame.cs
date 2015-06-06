@@ -40,6 +40,6 @@ public class LiverGame : MonoBehaviour {
 
     private void EndGame()
     {
-            BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES);        
+        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_FAIL, "LiverGameSucces");
     }
 }

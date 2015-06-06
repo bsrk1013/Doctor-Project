@@ -24,7 +24,8 @@ public class HeartAttackQuiz : QuizPlay {
 
         SetBulletin();
 
-       CraeteHintPhoto("HeartAttackHint");
+       CreateQuizPhoto("HeartAttackQuiz");
+       CraeteHintPhoto("HeartAttackHint");       
 
        Event();
 
@@ -65,9 +66,9 @@ public class HeartAttackQuiz : QuizPlay {
     {
         if (0 == HP)
         {
-            BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES);
+            BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_FAIL, "HeartAttackSucces");
         }
-        BackGroundManager.getInstance().ChangeBackGround( BackGroundManager.SCENE_NUM.E_SUCCES );
+        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES, "HeartAttackSucces");
     }
 
     public override void Event()

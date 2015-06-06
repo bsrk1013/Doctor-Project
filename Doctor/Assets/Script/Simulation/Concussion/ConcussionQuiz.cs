@@ -22,7 +22,8 @@ public class ConcussionQuiz : QuizPlay {
 
         Label.text = CurrentBulletin;
 
-        CraeteHintPhoto("ConcussionHint");
+        CreateQuizPhoto("ConcussionQuiz");
+        CraeteHintPhoto("ConcussionHint");        
 
         Event();
 
@@ -56,7 +57,11 @@ public class ConcussionQuiz : QuizPlay {
 
     public override void EndQuiz()
     {
-        BackGroundManager.getInstance().ChangeBackGround( BackGroundManager.SCENE_NUM.E_SUCCES );
+        if (0 == HP)
+        {
+            BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_FAIL, "ConcussionSucces");
+        }
+        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES, "ConcussionSucces");
     }
 
     public override void Event()

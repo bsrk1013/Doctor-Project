@@ -21,6 +21,7 @@ public class SnakeQuiz : QuizPlay {
 	void Update () {
         SetBulletin();
 
+        CreateQuizPhoto("SnakeQuiz");
         CraeteHintPhoto("SnakeHint");
 
         Event();
@@ -64,9 +65,9 @@ public class SnakeQuiz : QuizPlay {
     {
         if (0 == HP)
         {
-            BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES);
+            BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_FAIL, "SnakeSucces");
         }
-        BackGroundManager.getInstance().ChangeBackGround( BackGroundManager.SCENE_NUM.E_SUCCES );
+        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES, "SnakeSucces");
     }
 
     public override void Event()
