@@ -3,6 +3,7 @@ using System.Collections;
 
 public class StomachGame : MonoBehaviour {
 
+    public GameObject FoodSound;
     public GameObject CurrentFood;
     public GameObject GaugeObj;
     public GameObject Hand0;
@@ -43,7 +44,7 @@ public class StomachGame : MonoBehaviour {
 
     private void ClearGame()
     {
-        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES, "StomachGameSucces");
+        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES2, "StomachGameSucces");
     }
 
     private void PlayHandAnim()
@@ -82,13 +83,14 @@ public class StomachGame : MonoBehaviour {
         }
 
         if ("GoodFood" == CurrentFood.tag)
-        {            
-            Destroy(CurrentFood);
-            // 게이지 상승 함수 추가해야함
+        {
+            Instantiate(FoodSound);
+            Destroy(CurrentFood);            
             Gauge();
         }
         else if ("BadFood" == CurrentFood.tag)
         {
+            Instantiate(FoodSound);
             Destroy(CurrentFood);
             MinusHP();
         }

@@ -23,11 +23,11 @@ public class ConcussionQuiz : QuizPlay {
         Label.text = CurrentBulletin;
 
         CreateQuizPhoto("ConcussionQuiz");
-        CraeteHintPhoto("ConcussionHint");        
+        CraeteHintPhoto("ConcussionHint");
 
         Event();
 
-        if( 4 == CurrentStage )
+        if( 4 == CurrentStage || 0 == HP )
         {
             EndQuiz();
         }
@@ -39,17 +39,17 @@ public class ConcussionQuiz : QuizPlay {
         {
             case 1:
                 {
-                    CurrentBulletin = "기도확보가 중요하다!";
+                    CurrentBulletin = "";
                     break;
                 }
             case 2:
                 {
-                    CurrentBulletin = "출혈을 막자!";
+                    CurrentBulletin = "";
                     break;
                 }
             case 3:
                 {
-                    CurrentBulletin = "환자의 의식을 확인하자!";
+                    CurrentBulletin = "";
                     break;
                 }
         }
@@ -59,7 +59,9 @@ public class ConcussionQuiz : QuizPlay {
     {
         if (0 == HP)
         {
+            Debug.Log("HERE");
             BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_FAIL, "ConcussionSucces");
+            return;
         }
         BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES, "ConcussionSucces");
     }
@@ -102,16 +104,19 @@ public class ConcussionQuiz : QuizPlay {
 
     public void MentalChckButton()
     {
+        Instantiate(CorrectButtonSound);
         NextStage();
     }
 
     public void MouthButton()
-    {        
+    {
+        Instantiate(CorrectButtonSound);
         NextStage();
     }
 
     public void HeadZoneButton()
     {
+        Instantiate(CorrectButtonSound);
         NextStage();
     }
 }

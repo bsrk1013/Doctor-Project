@@ -3,6 +3,10 @@ using System.Collections;
 
 public abstract class QuizPlay : MonoBehaviour {
 
+    public AudioClip[] Sound;
+    public GameObject WrongButtonSound;
+    public GameObject CorrectButtonSound;
+
     protected UISprite CurrentHintPhoto;
     protected UISprite CurrentQuizPhoto;
     protected int CurrentStage;
@@ -14,6 +18,7 @@ public abstract class QuizPlay : MonoBehaviour {
 
     public void WrongButton()
     {
+        Instantiate(WrongButtonSound);
         GameObject.Find("Heart" + HP).SetActive(false);
         --HP;
     }
@@ -37,11 +42,22 @@ public abstract class QuizPlay : MonoBehaviour {
         isEvent = false;
     }
     
+    protected void ChangeQuizSound()
+    {
+        if (Sound.Length <= CurrentHintNum)
+        {
+            return;
+        }
+        GetComponent<AudioSource>().clip = Sound[CurrentHintNum];
+        GetComponent<AudioSource>().Play();
+    }
+
     protected void CraeteHintPhoto(string _Name)
     {
         if (CurrentStage != (CurrentHintNum))
         {
             CurrentHintPhoto.spriteName = _Name + CurrentHintNum;
+            ChangeQuizSound();
             ++CurrentHintNum;
         }
     }

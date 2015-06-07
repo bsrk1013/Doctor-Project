@@ -7,7 +7,6 @@ public class HeartAttckPlay : GamePlay
     void Start()
     {
         Init(40, true);
-        Debug.Log( gameObject + "pos : " + transform.position );
     }
 
     void FixedUpdate()

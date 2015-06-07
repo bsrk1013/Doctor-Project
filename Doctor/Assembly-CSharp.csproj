@@ -181,6 +181,7 @@
      <Compile Include="Assets\NGUI\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Script\BackGroundManager.cs" />
+     <Compile Include="Assets\Script\DisposableSound.cs" />
      <Compile Include="Assets\Script\HearthCare\DementiaGame\Card.cs" />
      <Compile Include="Assets\Script\HearthCare\DementiaGame\DementiaGame.cs" />
      <Compile Include="Assets\Script\HearthCare\LiverGame\BoomAnim.cs" />
@@ -197,7 +198,9 @@
      <Compile Include="Assets\Script\Menu\GameExit.cs" />
      <Compile Include="Assets\Script\Menu\HealthCareChoice.cs" />
      <Compile Include="Assets\Script\Menu\MainMenu.cs" />
+     <Compile Include="Assets\Script\Menu\MenualChoice.cs" />
      <Compile Include="Assets\Script\Menu\SimulationChoice.cs" />
+     <Compile Include="Assets\Script\Menual\DiseaseMenual.cs" />
      <Compile Include="Assets\Script\Simulation\Concussion\BandObject.cs" />
      <Compile Include="Assets\Script\Simulation\Concussion\ConcussionPlay.cs" />
      <Compile Include="Assets\Script\Simulation\Concussion\ConcussionQuiz.cs" />
@@ -207,6 +210,7 @@
      <Compile Include="Assets\Script\Simulation\Snake\SnakePlay.cs" />
      <Compile Include="Assets\Script\Simulation\Snake\SnakeQuiz.cs" />
      <Compile Include="Assets\Script\Simulation\Snake\WarterObject.cs" />
+     <Compile Include="Assets\Script\Sound\DisposableSound.cs" />
      <None Include="Assets\NGUI\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\NGUI\ReadMe - 3.6.2.txt" />
      <None Include="Assets\NGUI\NGUI\Resources\Shaders\Unlit - Text 2.shader" />

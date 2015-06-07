@@ -40,22 +40,22 @@ public class SnakeQuiz : QuizPlay {
         {
             case 1:
                 {
-                    CurrentBulletin = "119 연락!";
+                    CurrentBulletin = "";
                     break;
                 }
             case 2:
                 {
-                    CurrentBulletin = "독이 안퍼지게";
+                    CurrentBulletin = "";
                     break;
                 }
             case 3:
                 {
-                    CurrentBulletin = "상처를 씻자!";
+                    CurrentBulletin = "";
                     break;
                 }
             case 4:
                 {
-                    CurrentBulletin = "응급조치가 끝났다\n안정을취하자";
+                    CurrentBulletin = "";
                     break;
                 }
         }
@@ -66,6 +66,7 @@ public class SnakeQuiz : QuizPlay {
         if (0 == HP)
         {
             BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_FAIL, "SnakeSucces");
+            return;
         }
         BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES, "SnakeSucces");
     }
@@ -126,6 +127,8 @@ public class SnakeQuiz : QuizPlay {
             return;
         }
 
+        Instantiate(CorrectButtonSound);
+
         NextStage();
     }
 
@@ -133,21 +136,29 @@ public class SnakeQuiz : QuizPlay {
     {
         UpSilkObj.SetActive(true);
         UpSilkObj.transform.parent.GetComponent<BoxCollider>().enabled = false;
+
+        Instantiate(CorrectButtonSound);
+
         NextStage();
     }
 
     public void DownSilk()
     {
+        Instantiate(WrongButtonSound);
         MinusHP(); 
     }
 
     public void WarterDrop()
     {
+        Instantiate(CorrectButtonSound);
+
         NextStage();
     }
 
     public void RelaxButton()
     {
+        Instantiate(CorrectButtonSound);
+
         NextStage();
     }
 }

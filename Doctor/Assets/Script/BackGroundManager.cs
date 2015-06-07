@@ -32,8 +32,24 @@ public class BackGroundManager : MonoBehaviour
         E_FAIL,
         E_STOMACHGAME,
         E_DEMENTIAGAME,
+        E_MENUALCHOICE,
+        E_CENCERMENUAL,
+        E_CARDIOVASCULARDISEASEMENUAL,
+        E_DISABETESMELITUSMENUAL,
+        E_HYPERTENSIONMENUAL,
+        E_SUCCES2,
     };
 
+    private enum SOUND_NUM
+    {
+        E_MAIN = 0,
+        E_FAIL,
+        E_SUCCES,
+        E_SUCCES2,
+        E_NONE,
+    }
+
+    public AudioClip[] Sound;
     public GameObject[] SceneList;
     public static float EasingStart;
     public static int EasingNum;
@@ -43,9 +59,19 @@ public class BackGroundManager : MonoBehaviour
 
     void Start()
     {
-        CurrentScene = Instantiate(SceneList[(int)SCENE_NUM.E_MAIN]);
+        ChangeBackGround(SCENE_NUM.E_MAIN);
         EasingStart = 0;
         EasingNum = -1;
+    }
+
+    private void ChangeMainSound(SOUND_NUM _Num)
+    {
+        GetComponent<AudioSource>().clip = Sound[(int)_Num];
+        GetComponent<AudioSource>().loop = true;
+        if (!GetComponent<AudioSource>().isPlaying)
+        {
+            GetComponent<AudioSource>().Play();
+        }
     }
 
     public void ChangeBackGround(SCENE_NUM _Num, string _StageName = "")
@@ -53,15 +79,36 @@ public class BackGroundManager : MonoBehaviour
         Destroy(CurrentScene);
         CurrentScene = Instantiate(SceneList[(int)_Num]);
 
-        if( _Num == SCENE_NUM.E_SUCCES )
+        if (_Num == SCENE_NUM.E_MAIN || _Num == SCENE_NUM.E_SIMULATIONCHOICE
+            || _Num == SCENE_NUM.E_MENUALCHOICE || _Num == SCENE_NUM.E_HEALTHCARECHOICE)
+        {
+            ChangeMainSound(SOUND_NUM.E_MAIN);
+        }
+        else if (_Num == SCENE_NUM.E_SUCCES)
         {
             CurrentScene.GetComponent<GameExit>().StageName = _StageName;
             CurrentScene.GetComponent<UISprite>().spriteName = _StageName;
+            ChangeMainSound(SOUND_NUM.E_SUCCES);
         }
         else if (_Num == SCENE_NUM.E_FAIL)
         {
             CurrentScene.GetComponent<GameExit>().StageName = _StageName;
+            ChangeMainSound(SOUND_NUM.E_FAIL);
         }
+        else if(_Num == SCENE_NUM.E_SUCCES2)
+        {
+            CurrentScene.GetComponent<GameExit>().StageName = _StageName;
+            ChangeMainSound(SOUND_NUM.E_SUCCES2);
+        }
+        else
+        {
+            ChangeMainSound(SOUND_NUM.E_NONE);
+        }
+    }
+
+    public GameObject GetCurrentScene()
+    {
+        return CurrentScene;
     }
 
     public void EasingBackGround( int _nNum )
@@ -98,6 +145,6 @@ public class BackGroundManager : MonoBehaviour
         else
         {
             CurrentScene.transform.position = new Vector3(0.0f, 0.0f);
-        }        
+        }
     }
 }

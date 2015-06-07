@@ -14,9 +14,11 @@ public abstract class GamePlay : MonoBehaviour
     public int[] TalkSubject;
     public GameObject[] TalkSubjectObject;
     public int[] EasingNum;
-    public float LimitTime;
+    public float[] LimitTime;
+    public AudioClip[] Sound;
 
     protected UILabel Label;
+    protected AudioClip Clip = new AudioClip();
     protected float CurrentTime;
     protected int CurrentTalkNum;
     protected int PlayCount;
@@ -33,12 +35,19 @@ public abstract class GamePlay : MonoBehaviour
         isTalking = _isTalking;
         TalkBoxPos[1] = new Vector3(-0.4f, -0.7f); ;
         TalkBoxPos[0] = new Vector3(0.4f, -0.7f);        
+        ChangeTalkSound();
     }
 
     // Update가 시작하자마자 실행
     protected void RunTime()
     {
         CurrentTime += RealTime.deltaTime;
+    }
+
+    protected void ChangeTalkSound()
+    {
+        GetComponent<AudioSource>().clip = Sound[CurrentTalkNum];
+        GetComponent<AudioSource>().Play();
     }
 
     protected void ChangeTalkBox(int _ChangeNum, string _ObjectName, string _SpriteName)
@@ -51,9 +60,10 @@ public abstract class GamePlay : MonoBehaviour
 
     protected void DefaultTalk()
     {
-        if (LimitTime <= CurrentTime && isTalking)
-        {
+        if (LimitTime[CurrentTalkNum] <= CurrentTime && isTalking)
+        {            
             NextTalk();
+            ChangeTalkSound();
         }
 
         for (int i = 0; TalkSubjectObject.Length > i; ++i )
@@ -72,9 +82,6 @@ public abstract class GamePlay : MonoBehaviour
                 TalkSubjectObject[i].SetActive(false);
             }
         }
-
-        Debug.Log("CurrentTalkNum : " + CurrentTalkNum);
-        Debug.Log(TalkList[CurrentTalkNum]);
         Label.text = TalkList[CurrentTalkNum];
     }
 
@@ -99,6 +106,7 @@ public abstract class GamePlay : MonoBehaviour
         }
 
         NextTalk();
+        ChangeTalkSound();
     }
 
     protected void EasingEvent()

@@ -46,7 +46,7 @@ public class CreateObject : MonoBehaviour {
 
             if (30 <= CurrentTime)
             {
-                BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES, GameName + "Succes");
+                BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES2, GameName + "Succes");
             }
         }
 

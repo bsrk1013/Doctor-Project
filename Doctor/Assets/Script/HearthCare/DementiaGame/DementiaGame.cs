@@ -4,6 +4,7 @@ using System.Collections;
 public class DementiaGame : MonoBehaviour {
 
     public GameObject[] RandomCard;
+    public GameObject CardClickSound;
     public int CountCard;
 
     private GameObject[] AllCard = new GameObject[12];    
@@ -36,13 +37,14 @@ public class DementiaGame : MonoBehaviour {
 
     public void SelectCard(GameObject _Slect)
     {
+        Instantiate(CardClickSound);
         SelectedCard[CountCard] = _Slect;
         ++CountCard;
     }
 
     private void ClearGame()
     {
-        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES, "DementiaGameSucces");
+        BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES2, "DementiaGameSucces");
     }
 
     private void CompareCard()

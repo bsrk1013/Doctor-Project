@@ -43,7 +43,7 @@ public class HeartAttackQuiz : QuizPlay {
         {
             case 1:
                 {
-                    CurrentBulletin = "119 연락!";
+                    CurrentBulletin = "";
                     break;
                 }
             case 2:
@@ -67,6 +67,7 @@ public class HeartAttackQuiz : QuizPlay {
         if (0 == HP)
         {
             BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_FAIL, "HeartAttackSucces");
+            return;
         }
         BackGroundManager.getInstance().ChangeBackGround(BackGroundManager.SCENE_NUM.E_SUCCES, "HeartAttackSucces");
     }
@@ -116,7 +117,8 @@ public class HeartAttackQuiz : QuizPlay {
         {
             MinusHP();
             return;
-        }        
+        }
+        Instantiate(CorrectButtonSound);
         NextStage();
     }
 
@@ -128,10 +130,13 @@ public class HeartAttackQuiz : QuizPlay {
             return;
         }
 
+        Instantiate(CorrectButtonSound);
+
         ++CountCPR;
 
         if( MaxCPR == CountCPR )
         {
+            Instantiate(CorrectButtonSound);
             NextStage();
             CountCPR = 0;
         }
@@ -143,12 +148,13 @@ public class HeartAttackQuiz : QuizPlay {
         {
             MinusHP();
             return;
-        }
+        }        
 
         ++CountArtificialRespiration;
 
         if( MaxArtificialRespiration == CountArtificialRespiration )
         {
+            Instantiate(CorrectButtonSound);
             NextStage();
             CountArtificialRespiration = 0;
         }
