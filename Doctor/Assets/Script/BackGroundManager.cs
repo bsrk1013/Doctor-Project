@@ -88,6 +88,7 @@ public class BackGroundManager : MonoBehaviour
         {
             CurrentScene.GetComponent<GameExit>().StageName = _StageName;
             CurrentScene.GetComponent<UISprite>().spriteName = _StageName;
+            CurrentScene.GetComponent<UIButton>().normalSprite = _StageName;
             ChangeMainSound(SOUND_NUM.E_SUCCES);
         }
         else if (_Num == SCENE_NUM.E_FAIL)

@@ -13,8 +13,9 @@ public abstract class DragAndDropObject : MonoBehaviour {
     protected UIDragObject Drag;
 
     protected void Init()
-    {
-        Debug.Log( "pos : " + transform.position );
+    {        
+        transform.position = DefaultPos;
+        Debug.Log("pos : " + transform.position);
         isClick = false;
     }
 

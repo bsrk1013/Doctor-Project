@@ -130,8 +130,6 @@ public class HeartAttackQuiz : QuizPlay {
             return;
         }
 
-        Instantiate(CorrectButtonSound);
-
         ++CountCPR;
 
         if( MaxCPR == CountCPR )
